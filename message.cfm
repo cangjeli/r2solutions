@@ -93,19 +93,19 @@ $(document).ready(function(){
 
 <form action="r2d3.cfm" method="POST">
   <div class="form-group">
-    <label for="pName">Project Name:</label>
-    <input type="text" class="form-control" name="pName">
+    <label for="mail2">To:</label>
+    <input type="text" class="form-control" name="mail2">
   </div>
   <div class="form-group">
-    <label for="pCC">Charge Code:</label>
-    <input type="text" class="form-control" name="pCC">
+    <label for="subject">Subject:</label>
+    <input type="text" class="form-control" name="subject">
   </div>
   <div class="form-group">
-    <label for="pMang">Manager:</label>
-    <input type="text" class="form-control" name="pMang">
+    <label for="message">Message:</label>
+    <input type="text"  name="message">
   </div>
-  <input type="hidden" id="choice" name="choice" value="create">
-  <button type="submit" class="btn btn-primary">Create Project</button>
+  <input type="hidden" id="choice" name="choice" value="message">
+  <button type="submit" class="btn btn-primary">Send Message</button>
 </form>
 
 
