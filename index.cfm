@@ -104,6 +104,14 @@ $(document).ready(function(){
     <label for="pMang">Manager:</label>
     <input type="text" class="form-control" name="pMang">
   </div>
+    <div class="form-group">
+    <label for="sDate">Start Date:</label>
+    <input type="date" class="form-control" name="sDate">
+  </div>
+    <div class="form-group">
+    <label for="eDate">End Date:</label>
+    <input type="date" class="form-control" name="eDate">
+  </div>
   <input type="hidden" id="choice" name="choice" value="create">
   <button type="submit" class="btn btn-primary">Create Project</button>
 </form>
