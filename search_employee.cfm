@@ -8,7 +8,10 @@
 	
 	-->
 
-
+<cfquery datasource="test" name="emp_names">
+  select emp_name
+  from employee
+</cfquery>
 
 <html lang="en">
 <head>
@@ -95,15 +98,14 @@ $(document).ready(function(){
             <cfform action="employee_schedule.cfm" method="post"> 
                 <p>  <div class="form-group">
                     <label for="EmployeeName">Name:</label>
-                    <cfselect class="form-control" name="EmployeeName"> 
-                    <option value="Sohaib Khan">Sohaib Khan
-                    <option value="Chris Angjeli">Chris Angjeli 
-                    <option value="Patrick Leung">Patrick leung 
-                    <option value="Matthew Weepee">Matthew Weepee  
+                        <cfselect class="form-control" name="EmployeeName"> 
+                        <cfoutput query="emp_names">
+                          <option value="#emp_names.emp_name#">#emp_names.emp_name#</option>
+                        </cfoutput>
                     </cfselect> 
                 </div></p> 
                 
-            <!--- submit button ---> 
+            <!-- submit button --> 
             <div style="text-align:center;">
             <cfinput type="Submit"  class="btn btn-primary" name="SubmitForm" value="Search"> 
             </div>    
