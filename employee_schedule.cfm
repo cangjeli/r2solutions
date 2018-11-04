@@ -64,7 +64,7 @@
 				<li><a href="emphome.html">MESSAGES</a></li>
 				<li><a href="emphome.html">UTILIZATION</a></li>
 				<li><a href="emphome.html">MY PROFILE</a></li>
-				<li><a href="emphome.html">SETTINGS</a></li>
+				<li><a href="projectreport.html">REPORTS</a></li>
 			</ul>
 			<div class="pull-right container-fluid">
 				<button class="pull-right btn btn-md navbar-btn" type="button"><a href="#" data-toggle="popover" data-placement="bottom" title="Sohaib Khan" data-content="Role: Business Analyst"> Sohaib <span class="glyphicon glyphicon-log-out"></span></a></button>
