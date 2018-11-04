@@ -14,18 +14,45 @@
 	from employee
     
     where emp_name = '#Form.EmployeeName#'
+
 </cfquery>
+
     
 <cfquery datasource= "test" name="hours">
 
-	Select hours_allocated, actual_hours_worked 
-	From employee_util
-	Where emp_id = 113
+	select hours_allocated, actual_hours_worked, charge_code
+	from employee_util
+	where emp_id = #rsPage.emp_id#
 
 </cfquery>
 
 
+
+<cfset allocated = valueList(hours.hours_allocated) />
+
+
+
+<cfset allocatedArray = listToArray(allocated) />
+
+<cfset allocated = #numberFormat(arraySum(allocatedArray))# />
+
+
+
+<cfset worked = valueList(hours.actual_hours_worked) />
+
+<cfset workedArray = listToArray(worked) />
+
+<cfset worked = #numberFormat(arraySum(workedArray))# />
+
+
+
+<!--
+    Query to get project name for each individual employee
+-->
+
+
 <html lang="en">
+
 <head>
   <title> Employee Schedule </title>
   <meta charset="utf-8">
@@ -64,7 +91,7 @@
 				<li><a href="emphome.html">MESSAGES</a></li>
 				<li><a href="emphome.html">UTILIZATION</a></li>
 				<li><a href="emphome.html">MY PROFILE</a></li>
-				<li><a href="projectreport.html">REPORTS</a></li>
+				<li><a href="emphome.html">SETTINGS</a></li>
 			</ul>
 			<div class="pull-right container-fluid">
 				<button class="pull-right btn btn-md navbar-btn" type="button"><a href="#" data-toggle="popover" data-placement="bottom" title="Sohaib Khan" data-content="Role: Business Analyst"> Sohaib <span class="glyphicon glyphicon-log-out"></span></a></button>
@@ -106,79 +133,80 @@ $(document).ready(function(){
     
             <script>
 
-window.onload = function () {
-
-   CanvasJS.addColorSet("greenBlueRed",
-                [//colorSet Array
-
-                "red",
-                "blue",
-                "green"                
-                ]);               
-
-var chart = new CanvasJS.Chart("chartContainer", {
-            
-                animationEnabled: true,
-
-                colorSet: "greenBlueRed",
-
-                title:{
-
-                                text:"Employee Schedule"
-
-                },
-
-                axisX:{
-
-                                interval: 1
-
-                },
-
-                axisY2:{
-
-                                interlacedColor: "rgba(255,165,0,.3)",
-
-                                gridColor: "rgba(1,77,101,.1)",
-
-                                title: "Project Hours"
-
-                },
-
-                data: [{
-
-                                type: "bar",
-
-                                name: "hours",
-
-                                axisYType: "secondary",
+                window.onload = function () {
                     
-                                dataPoints: [
+                CanvasJS.addColorSet("greenBlueRed",
+                    [//colorSet Array
 
-                                                { y: #actual_hours_worked#, label: "Hours Worked" },
+                        "red",
+                        "blue",
+                        "green"                
+                    ]);               
 
-                                                { y: #hours_allocated#, label: "Allocated Hours" },
+                var chart1 = new CanvasJS.Chart("chartContainer1", {
+            
+                        animationEnabled: true,
 
-                                                { y: 160, label: "Total Hours" },
+                        colorSet: "greenBlueRed",
 
-                                ]
+                        title:{
 
-                }]
+                                        text:"Employee Schedule"
 
-});
+                        },
 
-chart.render();
+                        axisX:{
 
- 
+                                        interval: 1
 
-}    
-    </script>
-                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
+                        },
+
+                        axisY2:{
+
+                                        interlacedColor: "rgba(255,165,0,.3)",
+
+                                        gridColor: "rgba(1,77,101,.1)",
+
+                                        title: "Project Hours"
+
+                        },
+
+                        data: [{
+
+                                        type: "bar",
+
+                                        name: "hours",
+
+                                        axisYType: "secondary",
+
+                                        dataPoints: [
+
+                                                        { y: #worked#, label: "Hours Worked"},
+
+                                                        { y: #allocated#, label: "Allocated Hours" },
+
+                                                        { y: 160, label: "Total Hours" },
+
+                                                    ]
+
+                        }]
+                        
+                });
+                    
+                    chart1.render();
+
+                }    
+                
+            </script>
+                
+                    <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
                 
             </cfoutput>
-            <br /><br /><br /><br /> 
+    
+                    <br /><br /><br /><br /> 
 
-                <form action="http://127.0.0.1:59449/admin_view.cfm">
+                <form action="http://127.0.0.1:59449/search_employee.cfm">
                     <input type="Submit" class="btn btn-primary" name="Find Another Employee" value="Find Another Employee"> 
                 </form>
 </div>

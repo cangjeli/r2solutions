@@ -9,6 +9,7 @@
 	-->
 
 
+
 <html lang="en">
 <head>
   <title>Find Employee</title>
@@ -91,8 +92,7 @@ $(document).ready(function(){
             
             
             
-            
-            <cfform action="admin_view_results.cfm" method="post"> 
+            <cfform action="employee_schedule.cfm" method="post"> 
                 <p>  <div class="form-group">
                     <label for="EmployeeName">Name:</label>
                     <cfselect class="form-control" name="EmployeeName"> 
@@ -107,10 +107,8 @@ $(document).ready(function(){
             <div style="text-align:center;">
             <cfinput type="Submit"  class="btn btn-primary" name="SubmitForm" value="Search"> 
             </div>    
-            </cfform>             
-    
-    
-    
+            </cfform>      
+                
 </div>
   <div class="col-xs-2"></div>
   </div>
