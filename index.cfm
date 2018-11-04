@@ -91,6 +91,10 @@ $(document).ready(function(){
 <div class="row">
 <div class="col-xs-12">
 
+<cfquery name="managers" datasource="r2d2" >
+	SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role = "Manager"
+</cfquery>
+
 <form action="r2d3.cfm" method="POST">
   <div class="form-group">
     <label for="pName">Project Name:</label>
@@ -101,8 +105,12 @@ $(document).ready(function(){
     <input type="text" class="form-control" name="pCC">
   </div>
   <div class="form-group">
-    <label for="pMang">Manager:</label>
-    <input type="text" class="form-control" name="pMang">
+  	Manager: <br></br>
+<SELECT name="pMang">
+  <CFOUTPUT QUERY="managers">
+    <OPTION value="#managers.emp_id#">#managers.emp_name# - #managers.emp_id# </OPTION>
+  </CFOUTPUT>
+</SELECT>
   </div>
     <div class="form-group">
     <label for="sDate">Start Date:</label>
