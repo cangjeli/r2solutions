@@ -3,7 +3,7 @@
 <cfoutput>
 
 <head>
-  <title>My Projects-Manager/Admin Page</title>
+  <title>Database Pull / E-mail Sent</title>
   <meta<!DOCTYPE html>
 <html lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,10 +36,10 @@
 		</div>-->
 			<ul class="nav navbar-nav">
   <li><a href=""> <span class="glyphicon glyphicon-home"></span></a></li>
-				<li><a href="index.cfm">MY PROJECTS</a></li>
-				<li><a href="emphome.html">SCHEDULE</a></li>
-				<li><a href="message.cfm">MESSAGES</a></li>
-				<li><a href="emphome.html">UTILIZATION</a></li>
+				<li><a href="index.cfm">ADD PROJECT</a></li>
+				<li><a href="allprojects.html">ALL PROJECTS</a></li>
+				<li><a href="chat.cfm">MESSAGES</a></li>
+				<li><a href="resource_utilization_search_employee.cfm">UTILIZATION</a></li>
 				<li><a href="emphome.html">MY PROFILE</a></li>
 				<li><a href="emphome.html">SETTINGS</a></li>
 			</ul>
@@ -72,18 +72,6 @@ $(document).ready(function(){
 		<div class="col-xs-6">
 		</div>
     <div class="col-xs-6">
-	
-	<button type="button" class=" pull-right btn btn-primary navbar-btn btn-xs">View</button>
-	<div class="dropdown">
-		<button class="pull-right btn btn-primary navbar-btn btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Month
-		<span class="caret"></span></button>
-		
-	</div>
-	<div class="dropdown">
-		<button class="pull-right btn btn-primary navbar-btn btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Year
-		<span class="caret"></span></button>
-			
-	</div>
 
 	</div>
 		</div>
@@ -92,12 +80,12 @@ $(document).ready(function(){
 <div class="row">
 <div class="col-xs-12">
 <cfif fun eq "create">
-<cfquery name="Projects" datasource="r2d2">
+<cfquery name="Projects" datasource="r2_db">
   INSERT INTO PROJECT
   VALUES ('#Form.pCC#','#Form.pName#','#Form.pMang#','#Form.sDate#','#Form.eDate#')
 </cfquery>
 
-<cfquery datasource="r2d2" name="check">
+<cfquery datasource="r2_db" name="check">
 select *
 from PROJECT
 </cfquery>
@@ -107,15 +95,19 @@ from PROJECT
 
 
 <cfelseif fun eq "message">
-<cfmail to="#Form.mail2#"
-	from=""
-	subject="#Form.subject#"
-	type="text">
-	#Form.message#
+
+<cfmail 
+to="#Form.recipient#"
+from="r2solutionsGMU@gmail.com" 
+subject="#Form.subject#">
+#Form.messagetext# 
+
+This is an e-mail sent out by the CRU app developed by R2 Solutions
+
 </cfmail>
+
 <cfoutput>
-    <p>
-    We have just sent you an email.</p>
+    <p>Your e-mail has been sent. Be aware that refreshing this page will send out duplicate e-mails.</p>
 </cfoutput>
 </cfif>
 
