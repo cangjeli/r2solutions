@@ -16,6 +16,7 @@
     where emp_name = 'Sohaib Khan'
 
 </cfquery>
+																																																																						
 
     
 <cfquery datasource= "test" name="hours">
