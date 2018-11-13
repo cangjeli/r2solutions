@@ -6,27 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="custom.css">
+  <link rel="stylesheet" href="customdark.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container-fluid" style="background-color:#1E1E2E;">
 	<div class="row">
 		<div class="well-sm">
 			<div class="col-xs-6">
 			<a href="emphome.html"><img class="pull-left img-responsive" src="clango-med.png" alt="Clango Logo" ></a></div>
 			<div class="col-xs-6">
-				<a href="yeet.html"><img class="pull-right img-responsive" src="r2Logo.png" alt="R2 Solutions Logo" ></a>
+				<a href="yeet.html"><img class="pull-right img-responsive" src="dark r2.png" alt="R2 Solutions Logo" ></a>
 				
 			</div>
 		</div>
 	</div>
 </div>
 <nav class="navbar navbar-default">
-	<div class="container-fluid">
+	<div class="container-fluid" style="background-color:#27293D;">
 	 <div class="navbar-header">
       <a class="navbar-brand" href="home.html">CRUMAN</a>
     </div>
@@ -47,16 +47,13 @@
 				<li><a href="search_employee.cfm">RESOURCE UTILIZATION</a></li>
 				<li><a href="messages.cfm">MESSAGES</a></li>
 			</ul>
-			<div class="pull-right container-fluid">
+
 			<ul class="nav navbar-nav navbar-right">
-			<li>
-				<!--<button class="pull-right btn btn-md navbar-btn" type="button">--><a href="logout.cfm" data-toggle="popover" data-placement="bottom" data-trigger="hover" title="session variable" data-content="Role: session variable">user</a><!--</button>--></li>
-				
-				<li><a href="#"> <span class="glyphicon glyphicon-log-out"></span></a></li>
-				
-				<ul class="nav navbar-nav navbar-right">
-			</div>
-
+				<li>
+					<a href="logout.cfm" data-toggle="popover" data-placement="bottom" data-trigger="hover" title="session variable" data-content="Role: session variable">pull user session variable&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
+				</li>
+			</ul>
+			
 <script>
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
@@ -68,16 +65,21 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
 </script>
-				
+
   </div>
-  
+
 </nav>
 
-<div class = "container-fluid">
+<!--<div class="container-fluid" style="background-color:#1E1E2E; color: white;">
+	<div class = "row">
+		<div class = "col-xs-12"></div>
+	</div>
+</div>-->
+<div class="container-fluid" style="background-color:#1E1E2E; color: white;">
 	<div class = "row">
 	<div class = "col-xs-2"></div>
 		<div class = "col-xs-8">
-			<div class = "well-sm text-center">
+			<div class = "well-sm text-center" style="background-color: #1e1e2e;">
 			<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter;">
 			CRUMAN
 			</h1> 
@@ -92,28 +94,25 @@ $(document).ready(function(){
 					1. <b>C</b>lango <b>R</b>esource <b>U</b>tilization <b>Man</b>ager, a web application designed by R2 Solutions:
 				</h4>
 					<p style="font-family:'Montserrat', sans-serif; font-weight:lighter; color: #939393">"The administrators, managers, and employees of Clango, Inc. use the CRUMAN app to create projects, organize them, and assign resources to them to maximize resource utilization."</p>  
-		<!--<hr />
-			
-		
-					<img class="img-responsive center-block" src="cruman.png" alt="CRUMAN" > 
-			-->
+<br /><br /><br /><br />
 			</div>
 			
 		</div>
 			<div class = "col-xs-2"></div>
+
 	</div>	
 </div>
-  
+  <div class="container-fluid" style="background-color:#1E1E2E; color: white;">
   <footer>
-  <hr />
+  <hr/>
  	<div class="col-xs-12 text-center">
 		<p>R2 Solutions has created this web application for the use of Clango, Inc.</p>
 	</div>
  
-	<img class="img-responsive center-block" src="cruman-sm.png" alt="CRUMAN" >
+	<img class="img-responsive center-block" src="CRUMAN (2).png" alt="CRUMAN" >
 	</div>
 </footer>
-
+</div>
 
  
 
