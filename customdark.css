@@ -1,0 +1,98 @@
+.html {
+	background-color: #1e1e2e;
+}
+.container-fluid {
+	background-color: #1e1e2e;
+}
+.navbar-default {
+	margin : 0 !important;
+	background-color: #27293D;
+	text-align: center;
+	font-family: 'Unica One', cursive;
+	border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+	
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+	font-size: 13px;
+	
+}
+.navbar-default .navbar-nav > li > a:hover {
+	background-color: #DD4FCF;
+	height: 100%;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+	font-size: 16px;
+	text-align: center;
+	
+}
+
+.navbar-default .navbar-brand > a:hover {
+	background-color: #f0ad4e;
+	
+}
+.affix {
+      top: 0;
+      width: 100%;
+      z-index: 9999 !important;
+  }
+
+  .affix + .container-flush {
+      padding-top: 70px;
+  }
+  
+ .container-fluid {
+	 font-family: 'Montserrat', sans-serif;
+ }
+.glyphicon-home {
+	font-size: auto;
+	color: white;
+	text-align: center;
+	line-height: auto;
+}
+
+.well {
+	background-color: black;
+}
+.btn {
+	background-color: #99badd;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+.btn-xs:hover {
+	background-color:  #f0ad4e;
+}
+
+ .popover {
+     font-family: 'Montserrat', sans-serif;
+  }
+  /* Popover Header */
+  .popover-title {
+      background-color:  #27293D; 
+      color: white; 
+      text-align:left;
+  }
+  /* Popover Body */
+  .popover-content {
+      background-color:  #DD4FCF;
+      color: white;
+	  text-align: left;
+  }
+  /* Popover Arrow */
+  .arrow {
+	  background-color: #99badd;
+      border-color: #99badd;
+  }
+
+.footer {
+	display: block;
+	position: fixed;
+	min-height: 100%;
+}
+
+
