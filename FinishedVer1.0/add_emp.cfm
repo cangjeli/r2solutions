@@ -2,6 +2,10 @@
 	<cfinclude template="home.cfm" >
 	<cfabort>
 <cfelse>
+<!--- Lines 1-4 are reserved for white list security.  Essentially only admins can access this page
+	  even if someone were to reach this page from within the network if they aren't logged in
+	  with an Admin account it would send the user back to the home screen and stop parsing
+	  protecting the code --->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +92,8 @@ $(document).ready(function(){
 
 <div class="col-xs-2"></div>
 <div class="col-xs-8">
-            
+ <!--- Below on lines 96 to 106 are our queries for our dropdown menu.  <cfqueryparam> is placed to
+ 	   prevent SQL injection --->           
 <cfquery name="projD" datasource="r2d2" >
 
 SELECT * FROM PROJECT
@@ -100,7 +105,10 @@ SELECT * FROM PROJECT
 SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role <> <cfqueryparam value= 'Manager' cfsqltype="CF_SQL_VARCHAR"> OR <cfqueryparam value= 'Admin' cfsqltype="CF_SQL_VARCHAR">  
 
 </cfquery>           
-            
+  <!--- Below on lines 111 to 117 is a generalize message system.  Custom messages are possible 
+  		as well as reponses.  For now we will use a general valid/invalid system.
+  		utilizing the return function on R2D3.cfm page and adding a new custom <cfelseif> allow
+  		for a great number of response. --->              
 
     <cfif IsDefined ("error")>
         <cfif error EQ "Yes">
@@ -111,7 +119,10 @@ SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role <> <cfqueryparam 
     </cfif>
 
 <cfform action="r2d3.cfm" method="POST">
-
+<!--- During testing we did not have the dropdown list with all the projects.  
+      Resulting in a lot of back and forth.  So the dropdown was placed.  It's value is not used
+      but provides a good overview of all recorded projects that is more visually adaptable than
+      a table --->
   <div class="form-group">
 
  <label for="Manage">List of Projects Reference:</label>
@@ -210,8 +221,8 @@ SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role <> <cfqueryparam 
 <button type="submit" class="btn btn-primary">Submit</button>
 
 </cfform>
-
-    
+<!--- A majority of the form are dropdown menus to prevent SQL injection.  Since ColdFusion is a server side language even if a hacker tries to submit form data with the same variables it will not work due to the constraints of the dropdown menu and login feature.
+    --->
     
 </div>
   <div class="col-xs-2"></div>

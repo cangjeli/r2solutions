@@ -1,0 +1,23 @@
+#!/bin/sh
+. /etc/rc.common
+
+
+#
+# Start ColdFusion 
+#
+# Because this is a start up script, and will be run by root, we use a specific 
+# user (the user who installed) to run ColdFusion
+
+CF_DIR="/Applications/ColdFusion2018/cfusion"
+RUNTIME_USER="MatthewWepee"
+
+# 1.0/Initial
+#
+##
+  
+if [ ${1:-noset} = "stop" ]; then
+  su $RUNTIME_USER -c "$CF_DIR/bin/coldfusion stop"
+  exit 0
+fi
+
+su $RUNTIME_USER -c "$CF_DIR/bin/coldfusion start"

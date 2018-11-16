@@ -1,0 +1,44 @@
+jvm_config="jvm.config"
+ARG=$1
+if [ -z "$ARG" ]; then
+    jvm_config="jvm.config"
+else
+    jvm_config=$1
+fi
+
+if [ -f $jvm_config ]; then
+     jvm_config=$jvm_config
+else
+     jvm_config=$JVMCONFIG
+fi
+
+JVM_HOME=`sed '/^\#/d' $jvm_config| grep "java.home"  | tail -n 1 | awk -F "java.home" {'print $2'}|sed 's/=//'`
+if [ $JVM_HOME ]; then
+    JAVA_HOME=$JVM_HOME
+fi
+
+JVM_ARGS=`sed '/^\#/d' $jvm_config| grep "java.args"  | tail -n 1 | awk -F "java.args" {'print $2'}|sed 's/=//'|sed "s|{application.home}|$CF_DIR|g"`
+
+
+JAVA_CLASSPATH=`sed '/^\#/d' $jvm_config| grep "java.class.path"  | tail -n 1 | awk -F "java.class.path" {'print $2'}|sed 's/=//'`
+
+JAVA_CLASSPATH=`echo $JAVA_CLASSPATH | awk 'BEGIN{FS=","}{
+  for (i=1; i<=NF; i++) 
+  {
+    print $i ":" $i "/*:"
+  }
+}'`
+
+JAVA_CLASSPATH=`echo $JAVA_CLASSPATH|sed 's/ //g'`
+JAVA_CLASSPATH=`echo $JAVA_CLASSPATH|sed "s|{application.home}|$CF_DIR|g"`
+
+
+JAVA_LIBRARYPATH=`sed '/^\#/d' $jvm_config| grep "java.nixlibrary.path"  | tail -n 1 | awk -F "java.nixlibrary.path" {'print $2'}|sed 's/=//'`
+JAVA_LIBRARYPATH=`echo $JAVA_LIBRARYPATH | awk 'BEGIN{FS=","}{
+  for (i=1; i<=NF; i++) 
+  {
+    print $i ":"
+  }
+}'`
+JAVA_LIBRARYPATH=`echo $JAVA_LIBRARYPATH|sed "s|{application.home}|$CF_DIR|g"`
+
