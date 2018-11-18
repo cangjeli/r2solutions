@@ -90,7 +90,7 @@ $(document).ready(function(){
 Send User E-Mail
 </center>
 
-<form action="r2d3.cfm" method="POST">
+<form action="send_email.cfm" method="POST">
   <div class="form-group">
     <label for="recipient">Enter recipient's e-mail:</label>
     <input type="text" class="form-control" name="recipient">
