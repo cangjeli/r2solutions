@@ -4,9 +4,10 @@
 	<title>CRUMAN - Home Page</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	<!--FONTS USED FROM GOOGLE---------------------------->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!--CUSTOM CSS ON TOP OF BOOTSTRAP-------------------->
 	<link rel="stylesheet" href="custom.css">
 			
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -50,6 +51,7 @@
 			
 			<ul class="nav navbar-nav navbar-right">
 			<li>
+			<!--PULLS USER SESSION VARIABLE TO DISPLAY APPROPRIATE NAVBAR TABS AND WHO IS LOGGED IN-->
 				<a href="logout.cfm" data-toggle="popover" data-placement="bottom"  title="session variable" data-content="Role: session variable"> 
 					<cfoutput>#GetAuthUser()# </cfoutput><span class="glyphicon glyphicon-log-out"></span></a></li>
 			</ul>
@@ -98,4 +100,5 @@
 			<img class="img-responsive center-block" src="cruman-sm.png" alt="CRUMAN" >
 </footer>
 </body>
+<!--LAST UPDATED 24 NOV 2018-->
 </html>
