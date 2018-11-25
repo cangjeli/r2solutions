@@ -43,6 +43,7 @@
 .btn {
 	background-color: #99badd;
 	font-family: 'Montserrat', sans-serif;
+	border-radius: 0 !important;
 }
 
 
@@ -80,4 +81,14 @@
 	font-family:'Montserrat', sans-serif; 
 	font-weight:lighter;
 	color: black;
+	border-radius: 0 !important;
+}
+
+.well-sm {
+	background-color: #F1F1F1;
+	border-radius: 0 !important;
+}
+
+.input {
+	border-radius: 0 !important;
 }

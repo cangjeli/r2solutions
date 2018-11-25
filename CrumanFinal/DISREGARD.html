@@ -37,11 +37,11 @@
 <div class="container">
 	<div class="row">
 	
-	<div class="well-sm">
+	
 
 		<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-
+				<div class="well-sm">
 				<cfif IsDefined ("error")>
 				<!--If there is an error in form entry, this is displayed-->
 					<cfif error EQ "Yes">
@@ -56,25 +56,25 @@
 
 	<div class="form-group">	
 		<label for="eID">Old Password:</label>	
-			<input type="text" class="form-control" name="oldPass" required>
+			<input type="text" class="form-control" name="oldPass" style="border-radius: 0 !important;" required>
 	</div>
 	
 	<div class="form-group">
 		<label for="eID">New Password:</label>
-			<input type="text" class="form-control" name="password" required>
+			<input type="text" class="form-control" name="password" style="border-radius: 0 !important;" required>
 	</div>
   
-	<input name="action" type="hidden" value="changeP"> 
+	<input name="action" type="hidden" value="changeP" style="border-radius: 0 !important;"> 
 
 	<button type="submit" class="btn btn-primary">Submit</button>
 
 				</cfform>
 
     
-    
+		</div>
 		</div>
 	<div class="col-xs-2"></div>
-	</div><!--end well-->
+
 </div>
 </div>
   
