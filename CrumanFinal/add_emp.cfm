@@ -3,37 +3,50 @@
 	  even if someone were to reach this page from within the network if they aren't logged in
 	  with an Admin account it would send the user back to the home screen and stop parsing
 	  protecting the code --->
+	  
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add Employee</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="custom.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>CRUMAN - ADD EMPLOYEE</title>
+	
+	<!--DESCRIPTION: SPLASH PAGE FOR USER AFTER LOGIN---------->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--GOOGLE FONTS 'MONTSERRAT' AND 'UNICA ONE' USED--------->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--CUSTOM CSS ADDED ON TOP OF BOOTSTRAP 3.3.7------------->
+	<link rel="stylesheet" href="custom.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 </head>
+
 <body>
 
+<!--INCLUDE FOR THE HEADER AND NAVBAR------------------------>
 <cfinclude template="header.cfm" >
-<div class="container">
-<div class="row">
-<div class="col-xs-2"></div>
-<div class="col-xs-8">
-<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:justify;">Assign Employee to Project</h1><hr/>
 
-</div>
-<div class="col-xs-2"></div>
-</div>
-</div> 
 <div class="container">
-<div class="row">
-
-<div class="col-xs-2"></div>
-<div class="col-xs-8">
+	<div class="row">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:center;">Assign Employee to Project</h1><hr/>
+		</div>
+		
+		<div class="col-xs-2"></div>
+	</div>
+</div>
+ 
+<div class="container">
+	<div class="row">
+	
+	<div class="well-sm"><!--well start-->
+		<div class="col-xs-2"></div>
+			<div class="col-xs-8">
  <!--- Below on lines 96 to 106 are our queries for our dropdown menu.  <cfqueryparam> is placed to
  	   prevent SQL injection --->           
 <cfquery name="projD" datasource="r2d2" >
@@ -54,9 +67,9 @@ SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role <> <cfqueryparam 
 
     <cfif IsDefined ("error")>
         <cfif error EQ "Yes">
-        <h4 align="center"><font color="Orange">Invalid Entry.  Please Try Again.</font></h4>
+		<h4 align="center" style="font-family:'Montserrat', sans-serif; font-weight:lighter; color:#f0ad4e;">Invalid entry. Please try again.</h4>
         <cfelseif error EQ "No">
-         <h4 align="center"><font color="Blue"> Employee Assigned.</font></h4>
+		<h4 align="center" style="font-family:'Montserrat', sans-serif; font-weight:lighter; color:#99badd;">Employee assigned.</h4>
         </cfif>    
     </cfif>
 
@@ -65,117 +78,82 @@ SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role <> <cfqueryparam 
       Resulting in a lot of back and forth.  So the dropdown was placed.  It's value is not used
       but provides a good overview of all recorded projects that is more visually adaptable than
       a table --->
-  <div class="form-group">
+	<div class="form-group">
+		<label for="Manage">List of Projects Reference:</label>
+			<SELECT name="ref">
+				<CFOUTPUT QUERY="projD">
+					<OPTION value="ref">#projD.project_name# - #projD.charge_code# | Manager: #projD.manager#  | Start Date: #projD.start_month#/#projD.start_year# |   End Date: #projD.end_month#/#projD.end_year# </OPTION>
+				</CFOUTPUT>
+			</SELECT>
+	</div>
 
- <label for="Manage">List of Projects Reference:</label>
-
-<SELECT name="ref">
-
-  <CFOUTPUT QUERY="projD">
-
-    <OPTION value="ref">#projD.project_name# - #projD.charge_code# | Manager: #projD.manager#  | Start Date: #projD.start_month#/#projD.start_year# |   End Date: #projD.end_month#/#projD.end_year# </OPTION>
-
-  </CFOUTPUT>
-
-<br/>
-
-</SELECT>
-</div>
-
-  <div class="form-group">
-
- <label for="projD">Project Charge Code:</label>
-
-<SELECT name="pMang">
-
-  <CFOUTPUT QUERY="projD">
-
-    <OPTION value="#projD.charge_code#">#projD.charge_code# </OPTION>
-
-  </CFOUTPUT>
-
-</SELECT>
-
-  </div>
-
-  <div class="form-group">
-
- <label for="Employee">Employee ID:</label>
-
-<SELECT name="pEmp">
-
-  <CFOUTPUT QUERY="employees">
-
-    <OPTION value="#employees.emp_id#">#employees.emp_name# - #employees.emp_id# | #employees.emp_role# </OPTION>
-
-  </CFOUTPUT>
-
-</SELECT>
-
- 
-
-  </div>
-   <div class="form-group">
-
-    <label for="pName">Hours Allocated:</label>
-
-    <input type="text" class="form-control" name="aHours" required>
-
-  </div>
+	<div class="form-group">
+		<label for="projD">Project Charge Code:</label>
+			<SELECT name="pMang">
+				<CFOUTPUT QUERY="projD">
+					<OPTION value="#projD.charge_code#">#projD.charge_code# </OPTION>
+				</CFOUTPUT>
+			</SELECT>
+	</div>
+	
+	<div class="form-group">
+		<label for="Employee">Employee ID:</label>
+			<SELECT name="pEmp">
+				<CFOUTPUT QUERY="employees">
+					<OPTION value="#employees.emp_id#">#employees.emp_name# - #employees.emp_id# | #employees.emp_role# </OPTION>
+				</CFOUTPUT>
+			</SELECT>
+	</div>
+	
+	<div class="form-group">
+		<label for="pName">Hours Allocated:</label>
+			<input type="text" class="form-control" name="aHours" required>
+	</div>
 
     <div class="form-group">
-
-    <label for="sDate">Month & Year:</label>
-
-  <select name="sMonth">
-    <option value="01">January</option>
-    <option value="02">Feburary</option>
-    <option value="03">March</option>
-    <option value="04">April</option>
-    <option value="05">May</option>
-    <option value="06">June</option>
-    <option value="07">July</option>
-    <option value="08">August</option>
-    <option value="09">September</option>
-    <option value="10">October</option>
-    <option value="11">November</option>
-    <option value="12">December</option>
-  </select>
-
-  <select name="sYear">
-
-            <cfloop from="2000" to="2050" index="i">
-
-                <cfoutput>
-
-                    <option value="#i#">#i#</option>
-
-                </cfoutput>
-
-            </cfloop>
-
-    </select>
-    <br/>
-     <br/>
+		<label for="sDate">Month & Year:</label>
+			<select name="sMonth">
+				<option value="01">January</option>
+				<option value="02">Feburary</option>
+				<option value="03">March</option>
+				<option value="04">April</option>
+				<option value="05">May</option>
+				<option value="06">June</option>
+				<option value="07">July</option>
+				<option value="08">August</option>
+				<option value="09">September</option>
+				<option value="10">October</option>
+				<option value="11">November</option>
+				<option value="12">December</option>
+			</select>
+			<select name="sYear">
+				<cfloop from="2000" to="2050" index="i">
+					<cfoutput>
+						<option value="#i#">#i#</option>
+					</cfoutput>
+				</cfloop>
+			</select>
   
- <input name="action" type="hidden" value="assign"> 
-
-<button type="submit" class="btn btn-primary">Submit</button>
-
+	<input name="action" type="hidden" value="assign"> 
+	<br />
+	<button type="submit" class="btn btn-primary">Submit</button>
 </cfform>
+
 <!--- A majority of the form are dropdown menus to prevent SQL injection.  Since ColdFusion is a server side language even if a hacker tries to submit form data with the same variables it will not work due to the constraints of the dropdown menu and login feature.
     --->
     
-</div>
-  <div class="col-xs-2"></div>
-  </div>
-  
-  </div>
+	</div>
+			</div>
+		<div class="col-xs-2"></div>
+		</div><!--well end-->
+	</div>
   
 
 <cfinclude template="footer.cfm" >
 
 </body>
+
+<!--LAST UPDATED 24 NOV 2018--AUTHOR: MCIA------>
 </html>
 
 <cfelse>
