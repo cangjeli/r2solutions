@@ -41,11 +41,14 @@
 
 		<div class="col-xs-2"></div>
 			<div class="col-xs-8">
+
 				<cfif IsDefined ("error")>
+				<!--If there is an error in form entry, this is displayed-->
 					<cfif error EQ "Yes">
-						<h4 align="center"><font color="Orange">Invalid Entry.  Please Try Again.</font></h4>
+						<h4 align="center" style="font-family:'Montserrat', sans-serif; font-weight:lighter; color:#f0ad4e;">Invalid entry. Please try again.</h4>
+					<!--If there is no error in form entry, password is accepted, salted, and hashed into the database-->
 					<cfelseif error EQ "No">
-						<h4 align="center"><font color="Blue"> Password Changed.</font></h4>
+						<h4 align="center" style="font-family:'Montserrat', sans-serif; font-weight:lighter; color:#99badd;">Password accepted.</h4>
 					</cfif>    
 				</cfif>
 
