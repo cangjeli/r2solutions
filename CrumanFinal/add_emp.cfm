@@ -44,9 +44,11 @@
 <div class="container">
 	<div class="row">
 	
-	<div class="well-sm"><!--well start-->
+	
 		<div class="col-xs-2"></div>
 			<div class="col-xs-8">
+			<div class="well-sm"><!--well start-->
+			
  <!--- Below on lines 96 to 106 are our queries for our dropdown menu.  <cfqueryparam> is placed to
  	   prevent SQL injection --->           
 <cfquery name="projD" datasource="r2d2" >
@@ -107,7 +109,7 @@ SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role <> <cfqueryparam 
 	
 	<div class="form-group">
 		<label for="pName">Hours Allocated:</label>
-			<input type="text" class="form-control" name="aHours" required>
+			<input type="text" class="form-control" name="aHours" style="border-radius: 0 !important;" required>
 	</div>
 
     <div class="form-group">
@@ -143,9 +145,10 @@ SELECT emp_name, emp_id, emp_role FROM employee WHERE emp_role <> <cfqueryparam 
     --->
     
 	</div>
+	</div><!--well end-->
 			</div>
 		<div class="col-xs-2"></div>
-		</div><!--well end-->
+		
 	</div>
   
 
