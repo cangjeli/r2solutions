@@ -9,44 +9,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Create Account</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="custom.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>CRUMAN - HOME PAGE</title>
+	
+	<!--DESCRIPTION: CREATE ACCOUNT PAGE FOR ACCESS BY ADMIN---------->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--GOOGLE FONTS 'MONTSERRAT' AND 'UNICA ONE' USED--------->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--CUSTOM CSS ADDED ON TOP OF BOOTSTRAP 3.3.7------------->
+	<link rel="stylesheet" href="custom.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 </head>
+
 <body>
 
-<cfinclude template="header.cfm" >
-<div class="container">
-<div class="row">
-<div class="col-xs-2"></div>
-<div class="col-xs-8">
-<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:justify;">Create Account</h1><hr/>
+	<!--INCLUDE FOR THE HEADER AND NAVBAR------------------------>
+	<cfinclude template="header.cfm" >
 
-</div>
-<div class="col-xs-2"></div>
-</div>
+<div class="container">
+	<div class="row">
+	<div class="col-xs-2"></div>
+		<div class="col-xs-8">
+			<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:center;">Create Account</h1><hr/>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
 </div> 
 <div class="container">
-<div class="row">
-
-<div class="col-xs-2"></div>
-<div class="col-xs-8">
-            
-            
+	<div class="row">
+		<div class="col-xs-2"></div>
+			<div class="col-xs-8">
+				<div class = "well-sm">
             
             
 
     <cfif IsDefined ("error")>
         <cfif error EQ "Yes">
-        <h4 align="center"><font color="Orange">Invalid Entry.  Please Try Again.</font></h4>
+        <h4 align="center" style="font-family:'Montserrat', sans-serif; font-weight:lighter; color:#f0ad4e;">Invalid entry. Please try again.</h4>
         <cfelseif error EQ "No">
-         <h4 align="center"><font color="Blue"> Account Created.</font></h4>
+         <h4 align="center" style="font-family:'Montserrat', sans-serif; font-weight:lighter; color:#99badd;">Employee assigned.</h4>
         </cfif>    
     </cfif>
 
@@ -55,14 +62,14 @@
 
     <label for="uName">Employee's Username:</label>
 
-    <input type="text" class="form-control" name="uName" required>
+    <input type="text" class="form-control" name="uName" style="border-radius:0 !important;" required>
 
   </div>
   <div class="form-group">
 
     <label for="eName">Employee's Full Name:</label>
 
-    <input type="text" class="form-control" name="eName" required>
+    <input type="text" class="form-control" name="eName" style="border-radius:0 !important;" required>
 
   </div>
 
@@ -70,7 +77,7 @@
 
     <label for="eID">Employee ID:</label>
 
-    <input type="text" class="form-control" name="eID" required>
+    <input type="text" class="form-control" name="eID" style="border-radius:0 !important;" required>
 
   </div>
   
@@ -96,19 +103,19 @@
 
     <label for="eID">Password:</label>
 
-    <input type="text" class="form-control" name="pWssAord" required>
+    <input type="text" class="form-control" name="pWssAord" style="border-radius:0 !important;" required>
 
   </div>
 
   
- <input name="action" type="hidden" value="createAcc"> 
+ <input name="action" type="hidden" value="createAcc" style="border-radius:0 !important;"> 
 
 <button type="submit" class="btn btn-primary">Submit</button>
 
 </cfform>
 
     
-    
+</div><!--well end--> 
 </div>
   <div class="col-xs-2"></div>
   </div>
@@ -119,5 +126,6 @@
 <cfinclude template="footer.cfm" >
 
 </body>
+<!--LAST MODIFIED 25 NOV 2018--AUTHOR: MCIA-->
 </html>
 </cfif>
