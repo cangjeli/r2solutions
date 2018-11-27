@@ -42,7 +42,7 @@ SELECT emp_id, hours_allocated, actual_hours_worked FROM employee_util WHERE cha
 <div class="row">
 <div class="col-xs-2"></div>
 <div class="col-xs-8">
-<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:justify;">Project Report Generator</h1><hr/>
+<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:center;">Project Report Generator</h1><hr/>
 
 </div>
 <div class="col-xs-2"></div>
@@ -53,7 +53,7 @@ SELECT emp_id, hours_allocated, actual_hours_worked FROM employee_util WHERE cha
 
 <div class="col-xs-2"></div>
 <div class="col-xs-8">
-<div class = "col-xs-1">
+<div class="well-sm">
 
             <cfoutput query="rsPage">
                 
@@ -85,7 +85,7 @@ SELECT emp_id, hours_allocated, actual_hours_worked FROM employee_util WHERE cha
    </div> 
    <br/>   <br/>   <br/>
        
-                
+     </div>           
 </div>
 
   <div class="col-xs-2"></div>
@@ -97,6 +97,7 @@ SELECT emp_id, hours_allocated, actual_hours_worked FROM employee_util WHERE cha
 <cfinclude template="footer.cfm" >
 
 </body>
+<!--LAST MODIFIED 27 NOV 2018 LITERALLY WHAT IS GOING ON WITH THIS FUCKY PAGE-->
 </html>
 <cfelse>
 	<cfinclude template="home.cfm" >
