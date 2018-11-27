@@ -3,7 +3,7 @@
 	  even if someone were to reach this page from within the network if they aren't logged in
 	  with an Admin account it would send the user back to the home screen and stop parsing
 	  protecting the code --->
-<!DOCTYPE html>
+
 
 
 
@@ -18,27 +18,36 @@
   from employee
 </cfquery>
 
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Search Employees</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="custom.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>CRUMAN - SEARCH EMPLOYEE</title>
+	
+	<!--DESCRIPTION: DELETE PROJECT PAGE---------->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--GOOGLE FONTS 'MONTSERRAT' AND 'UNICA ONE' USED--------->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--CUSTOM CSS ADDED ON TOP OF BOOTSTRAP 3.3.7------------->
+	<link rel="stylesheet" href="custom.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 </head>
+
 <body>
 
+<!--INCLUDE FOR THE HEADER AND NAVBAR------------------------>
 <cfinclude template="header.cfm" >
 <div class="container">
 <div class="row">
 <div class="col-xs-2"></div>
 <div class="col-xs-8">
-<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:justify;">Find Employee</h1><hr/>
+<h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:center;">Find Employee</h1><hr/>
 
 </div>
 <div class="col-xs-2"></div>
@@ -49,7 +58,7 @@
 
 <div class="col-xs-2"></div>
 <div class="col-xs-8">
-            
+            <div class="well-sm">
             
             
             <cfform action="employee_schedule.cfm" method="post"> 
@@ -101,7 +110,7 @@
             <cfinput type="Submit"  class="btn btn-primary" name="SubmitForm" value="Search"> 
             </div>    
             </cfform>      
-                
+                </div>
 </div>
   <div class="col-xs-2"></div>
   </div>
@@ -112,6 +121,7 @@
 <cfinclude template="footer.cfm" >
 
 </body>
+<!--LAST MODIFIED 27 NOV 2018 BY MARIA NOT DONE AT ALL JESUS----->
 </html>
 <cfelse>
 	<cfinclude template="home.cfm" >
