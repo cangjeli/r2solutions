@@ -1,4 +1,3 @@
-<cfif GetUserRoles() IS "Admin" OR GetUserRoles() IS "Manager" >
 
 
 
@@ -14,22 +13,28 @@
 	select emp_name, emp_role, emp_id
 	from employee
     
-    where emp_name = '#Form.EmployeeName#'
+    where emp_name = '#GetAuthUser()#'
+    				
 
 </cfquery>
 
-    
+<cfparam name="Form.selection" default="no" >
+<cfparam name="Form.sMonth" default=month(now()) >
+<cfparam name="Form.sYear" default=Year(now()) >																																																																							
+
+<cfif Form.selection = "yes">
 <cfquery datasource= "r2d2" name="hours">
 
 	select hours_allocated, actual_hours_worked, charge_code
 	from employee_util
-	where emp_id = '#rsPage.emp_id#'AND
+	where emp_id = #rsPage.emp_id# AND
 		  month = '#Form.sMonth#' AND
 		  year = '#Form.sYear#'
 
-
 </cfquery>
 
+
+</cfif>
 
 
 <cfset allocated = valueList(hours.hours_allocated) />
@@ -55,7 +60,7 @@
 <cfquery datasource="r2d2" name="project_names">
   select project_name
   from project
-  where charge_code = '#hours.charge_code#'
+  where charge_code = <cfqueryparam value= #hours.charge_code# cfsqltype="CF_SQL_VARCHAR">
 </cfquery>
 
 <cfset names = valueList(project_names.project_name) />
@@ -65,9 +70,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CRUMAN - EMPLOYEE SCHEDULE</title>
+	<title>CRUMAN - EMPLOYEE VIEW</title>
 	
-	<!--DESCRIPTION: EMPLOYEE SCHEDULE PAGE PAGE---------->
+	<!--DESCRIPTION: EMPLOYEE VIEW PAGE---------->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -89,18 +94,20 @@
 <cfinclude template="header.cfm" >
   
 <div class="container">
-	<div class="row">
-		<div class="col-xs-2"></div>
-		<div class="col-xs-8">               
-			<div class="well-sm">
-			<!--PULLS EMPLOYEE NAME AND ROLL TO BE DISPLAYED-->
-            <cfoutput query="rsPage"> 
+<div class="row">
+<div class="col-xs-2"></div>
+<div class="col-xs-8">               
+                <div class="well-sm">
+				<!--pulls all data pertaining to employee by their employee id-->
+            <cfoutput query="rsPage">
+                
                 <h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:center;">#emp_name#</h1>
                 <p style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:justify; padding-left: 10px;">#emp_role#</p><hr/>
+                
             </cfoutput>
 
-			<!--PULL HOURS BASED ON EMPLOYEE SELECTED-->
             <cfoutput query="hours">
+
             <script>
 
                 window.onload = function () {
@@ -172,28 +179,59 @@
                     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>  
 
             </cfoutput>
-    
-                    <br /><br /><br /><br /> 
 
-                <!-- change action depending on current system -->
+<br/>
+<!--sohaib why is this here? what does it do?-->
 
-                <form action="http://127.0.0.1:50481/FinishedVer1.0/search_employee.cfm">
-                    <input type="Submit" class="btn btn-primary" name="Find Another Employee" value="Find Another Employee"> 
-                </form>
-			</div>
-		</div>
-		<div class="col-xs-2"></div>
-	</div>
+  <cfform action="employee_view.cfm" method="POST">
+     <div class="form-group">
+
+    <label for="sDate">Month & Year:</label>
+
+  <select name="sMonth">
+    <option value="01">January</option>
+    <option value="02">Feburary</option>
+    <option value="03">March</option>
+    <option value="04">April</option>
+    <option value="05">May</option>
+    <option value="06">June</option>
+    <option value="07">July</option>
+    <option value="08">August</option>
+    <option value="09">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+  </select>
+
+  <select name="sYear">
+
+            <cfloop from="2000" to="2050" index="i">
+
+                <cfoutput>
+
+                    <option value="#i#">#i#</option>
+
+                </cfoutput>
+
+            </cfloop>
+
+    </select>
+
+  </div>
+  <cfinput name="selection" type=hidden value=yes/>
+ <button type="submit" class="btn btn-primary">Submit</button>
+ </cfform> 
+ </div>
 </div>
+
+<div class="col-xs-2"></div>
+
+</div>
+  </div>
   
-<!--FOOTER INCLUDE-->
- <cfinclude template="footer.cfm" >
+<!--FOOTER INCLUDE---------------------------------->
+<cfinclude template="footer.cfm" >
 
 </body>
-<!--LAST MODIFIED 27 NOV 2018--AUTHOR:MCIA-->
+<!--LAST MODIFIED 27 NOV 2018--AUTHOR:MCIA---------->
 </html>
-<!--if employee credentials don't match, will reroute to home page-->
-<cfelse>
-	<cfinclude template="home.cfm" >
-	<cfabort>
-</cfif>
