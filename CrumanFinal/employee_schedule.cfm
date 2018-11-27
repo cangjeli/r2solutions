@@ -1,5 +1,5 @@
 <cfif GetUserRoles() IS "Admin" OR GetUserRoles() IS "Manager" >
-<!DOCTYPE html>
+
 
 
 
@@ -62,36 +62,45 @@
 
 <cfset allNames = listToArray(names) />
 
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Employee Schedule</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="custom.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>CRUMAN - EMPLOYEE SCHEDULE</title>
+	
+	<!--DESCRIPTION: EMPLOYEE SCHEDULE PAGE PAGE---------->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--GOOGLE FONTS 'MONTSERRAT' AND 'UNICA ONE' USED--------->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--CUSTOM CSS ADDED ON TOP OF BOOTSTRAP 3.3.7------------->
+	<link rel="stylesheet" href="custom.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 </head>
+
 <body>
+
+<!--INCLUDE FOR THE HEADER AND NAVBAR------------------------>
 <cfinclude template="header.cfm" >
   
 <div class="container">
-<div class="row">
-
-<div class="col-xs-8">               
-                
-            <cfoutput query="rsPage">
-                
-                <h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:justify;">#emp_name#</h1>
+	<div class="row">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8">               
+			<div class="well-sm">
+			<!--PULLS EMPLOYEE NAME AND ROLL TO BE DISPLAYED-->
+            <cfoutput query="rsPage"> 
+                <h1 style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:center;">#emp_name#</h1>
                 <p style="font-family:'Montserrat', sans-serif; font-weight:lighter; text-align:justify; padding-left: 10px;">#emp_role#</p><hr/>
-                
             </cfoutput>
 
+			<!--PULL HOURS BASED ON EMPLOYEE SELECTED-->
             <cfoutput query="hours">
-
             <script>
 
                 window.onload = function () {
@@ -171,19 +180,19 @@
                 <form action="http://127.0.0.1:50481/FinishedVer1.0/search_employee.cfm">
                     <input type="Submit" class="btn btn-primary" name="Find Another Employee" value="Find Another Employee"> 
                 </form>
-</div>
-
-<div class="col-xs-2"></div>
-
+			</div>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
 </div>
   
-  </div>
-  
-
+<!--FOOTER INCLUDE-->
  <cfinclude template="footer.cfm" >
 
 </body>
+<!--LAST MODIFIED 27 NOV 2018--AUTHOR:MCIA-->
 </html>
+<!--if employee credentials don't match, will reroute to home page-->
 <cfelse>
 	<cfinclude template="home.cfm" >
 	<cfabort>
