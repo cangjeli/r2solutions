@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CRUMAN - HOME PAGE</title>
+	<title>CRUMAN - CREATE ACCOUNT</title>
 	
 	<!--DESCRIPTION: CREATE ACCOUNT PAGE FOR ACCESS BY ADMIN---------->
 	<meta charset="utf-8">
