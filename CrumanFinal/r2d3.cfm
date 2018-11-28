@@ -203,6 +203,6 @@
 
 </cfoutput>
 <cfelse>
-	<cflocation url="http://127.0.0.1:50481/TestingApp/home.cfm" >
+	<cflocation url="http://127.0.0.1:50481/CrumanFinal/home.cfm" >
 	<cfabort>
 </cfif>

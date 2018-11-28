@@ -44,7 +44,7 @@
 				</h4>
 					<p style="font-family:'Montserrat', sans-serif; font-weight:lighter; color: #939393">"The administrators, managers, and employees of Clango, Inc. use the CRUMAN app to create projects, organize them, and assign resources to them to maximize resource utilization."
 					</p>  
-				<img class="img-responsive center-block" src="cruman.png" alt="CRUMAN" > 
+				<img class="img-responsive center-block" src="cruman-sm.png" alt="CRUMAN" > 
 			</div>
 		</div>
 		<div class = "col-xs-2"></div>

@@ -35,5 +35,5 @@
 <!--- Will relocate employee to home screen to prevent possible data collection of login code --->
 <cfset EmployeeName = GetAuthUser()>
 <!--- Change url when moved to different system or folder --->
-<cflocation url="http://127.0.0.1:50481/FinishedVer1.0/home.cfm" >
+<cflocation url="http://127.0.0.1:50481/CrumanFinal/home.cfm" >
 

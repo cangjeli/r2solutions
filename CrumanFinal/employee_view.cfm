@@ -19,8 +19,8 @@
 </cfquery>
 
 <cfparam name="Form.selection" default="no" >
-<cfparam name="Form.sMonth" default=month(now()) >
-<cfparam name="Form.sYear" default=Year(now()) >																																																																							
+<cfparam name="Form.sMonth" default= #month(now())# >
+<cfparam name="Form.sYear" default= #Year(now())# >																																																																							
 
 <cfif Form.selection = "yes">
 <cfquery datasource= "r2d2" name="hours">
