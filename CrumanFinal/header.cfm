@@ -1,4 +1,24 @@
 <!--HEADER AND NAVBAR PAGE--------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CRUMAN - DELETE PROJECT</title>
+	
+	<!--DESCRIPTION: DELETE PROJECT PAGE---------->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--GOOGLE FONTS 'MONTSERRAT' AND 'UNICA ONE' USED--------->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Unica+One" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!--CUSTOM CSS ADDED ON TOP OF BOOTSTRAP 3.3.7------------->
+	<link rel="stylesheet" href="custom.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+</head>
 
 <!--- DISPLAYS ALL NAVBAR PAGES IF THE USER IS AN ADMIN --->
 <cfif GetUserRoles() IS "Admin">
@@ -84,18 +104,19 @@ $(document).ready(function(){
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="well-sm">
+		
 			<div class="col-xs-6">
 			<a href="home.cfm"><img class="pull-left img-responsive" src="clango-med.png" alt="Clango Logo" ></a></div>
 			<div class="col-xs-6">
 				<a href="yeet.html"><img class="pull-right img-responsive" src="r2Logo.png" alt="R2 Solutions Logo" ></a>
 			</div>
-		</div>
+		
 	</div>
 </div>
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
-	<div class="navbar-header">
+			<!--NAVBAR HEADER MIGHT NEED TO BE REMOVED IDK-->
+		<div class="navbar-header">
 			<a class="navbar-brand" href="home.cfm"><b>CRUMAN</b></a>
 		</div>
 			<ul class="nav navbar-nav navbar-left">
@@ -160,7 +181,8 @@ $(document).ready(function(){
 
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
-	<div class="navbar-header">
+			<!--NAVBAR HEADER MIGHT NEED TO BE REMOVED IDK-->
+		<div class="navbar-header">
 			<a class="navbar-brand" href="home.cfm"><b>CRUMAN</b></a>
 		</div>
 			<ul class="nav navbar-nav navbar-left">
@@ -214,9 +236,9 @@ $(document).ready(function(){
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 	
-		<!--NAVBAR HEADER MIGHT NEED TO BE REMOVED IDK-->
+				<!--NAVBAR HEADER MIGHT NEED TO BE REMOVED IDK-->
 		<div class="navbar-header">
-		CRUMAN
+			<a class="navbar-brand" href="home.cfm"><b>CRUMAN</b></a>
 		</div>
 			<ul class="nav navbar-nav navbar-left">
 				<li><a href="home.cfm"> <span class="glyphicon glyphicon-home"></span></a></li>
@@ -286,8 +308,9 @@ $(document).ready(function(){
 </div>
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
+				<!--NAVBAR HEADER MIGHT NEED TO BE REMOVED IDK-->
 		<div class="navbar-header">
-		CRUMAN
+			<a class="navbar-brand" href="home.cfm"><b>CRUMAN</b></a>
 		</div>
 			<ul class="nav navbar-nav navbar-left">
 				
@@ -351,9 +374,10 @@ $(document).ready(function(){
 
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
-	 <div class="navbar-header">
-	CRUMAN
-    </div>
+			<!--NAVBAR HEADER MIGHT NEED TO BE REMOVED IDK-->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="home.cfm"><b>CRUMAN</b></a>
+		</div>
 			<ul class="nav navbar-nav navbar-left">
 				<li><a href="home.cfm"> <span class="glyphicon glyphicon-home">HOME</span></a></li>
 				<li><a href="employee_view.cfm">EMPLOYEE VIEW</a></li>
