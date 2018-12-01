@@ -121,7 +121,7 @@
 <cfinclude template="footer.cfm" >
 
 </body>
-<!--LAST MODIFIED 27 NOV 2018 BY MARIA NOT DONE AT ALL JESUS----->
+<!--LAST MODIFIED 27 NOV 2018 BY MARIA----->
 </html>
 <cfelse>
 	<cfinclude template="home.cfm" >
