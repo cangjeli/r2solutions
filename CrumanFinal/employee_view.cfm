@@ -181,7 +181,7 @@
             </cfoutput>
 
 <br/>
-<!--sohaib why is this here? what does it do?-->
+<!--Change view of previously scheduled hours-->
 
   <cfform action="employee_view.cfm" method="POST">
      <div class="form-group">
