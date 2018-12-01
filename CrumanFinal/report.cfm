@@ -97,7 +97,7 @@ SELECT emp_id, hours_allocated, actual_hours_worked FROM employee_util WHERE cha
 <cfinclude template="footer.cfm" >
 
 </body>
-<!--LAST MODIFIED 27 NOV 2018 LITERALLY WHAT IS GOING ON WITH THIS FUCKY PAGE-->
+<!--LAST MODIFIED 27 NOV 2018-->
 </html>
 <cfelse>
 	<cfinclude template="home.cfm" >
